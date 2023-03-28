@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Admin</title>
+    <link rel="stylesheet" href="/assets/login.css" />
+  </head>
+  <body>
+    <div class="main">
+      <h1>ADMIN</h1>
+      <form name="login">
+        <label>Username</label><br />
+        <input type="name" name="username" placeholder="masukkan username" />
+
+        <label>Password</label>
+        <input
+          type="password"
+          name="password"
+          placeholder="masukkan password"
+        />
+        <button>Login</button>
+      </form>
+    </div>
+    <script>
+      document.login.onsubmit = (e) => {
+        e.preventDefault();
+        const passwordd = document.login.password.value;
+        const username = document.login.username.value;
+        fetch("/api/login-admin", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            password,
+            username,
+          }),
+        }).then(async (response) => {
+          if (response.ok) {
+            location.href = "/index.html";
+          } else {
+            const pesan = await response.text();
+            alert(pesan);
+          }
+        });
+      };
+    </script>
+  </body>
+</html>
