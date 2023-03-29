@@ -11,25 +11,15 @@ import bcrypt from "bcryptjs";
 
 const app = express();
 
+app.use(express.json());
+
 app.use(cookieParser());
 
-app.use(express.static("public"));
-
 app.use((req, res, next) => {
-  if (req.path.startsWith("/api/login") || req.path.startsWith("/assets")) {
+  if (req.path.startsWith("/assets") || req.path.startsWith("/api/login")) {
     next();
   } else {
-    let authorized = false;
     if (req.cookies.token) {
-      try {
-        jwt.verify(req.cookies.token, process.env.SECRET_KEY);
-        authorized = true;
-      } catch (err) {
-        res.setHeader("Cache-Control", "no-store");
-        res.clearCookie("token");
-      }
-    }
-    if (authorized) {
       if (req.path.startsWith("/login")) {
         res.redirect("/");
       } else {
@@ -39,12 +29,7 @@ app.use((req, res, next) => {
       if (req.path.startsWith("/login")) {
         next();
       } else {
-        if (req.path.startsWith("/api")) {
-          res.status(401);
-          res.send("Anda harus login terlebih dahulu.");
-        } else {
-          res.redirect("/login");
-        }
+        res.redirect("/login");
       }
     }
   }
@@ -54,18 +39,17 @@ app.use((req, res, next) => {
 // const __dirname = path.dirname(new URL(import.meta.url).pathname);
 // app.use(express.static(path.resolve(__dirname, "public")));
 
-app.use(express.json());
+app.use(express.static("public"));
 
 app.post("/api/login", async (req, res) => {
   const results = await client.query(
-    `SELECT * FROM admin WHERE password = '${req.body.password}'`
+    `SELECT * FROM admin WHERE id = '${req.body.id}'`
   );
   if (results.rows.length > 0) {
     if (await bcrypt.compare(req.body.password, results.rows[0].password)) {
       const token = jwt.sign(results.rows[0], process.env.SECRET_KEY);
       res.cookie("token", token);
       res.send("Login berhasil.");
-      console.log(token);
     } else {
       res.status(401);
       res.send("Kata sandi salah.");
@@ -73,6 +57,21 @@ app.post("/api/login", async (req, res) => {
   } else {
     res.status(401);
     res.send("admin tidak ditemukan.");
+  }
+});
+
+app.use((req, res, next) => {
+  if (req.cookies.token) {
+    try {
+      jwt.verify(req.cookies.token, process.env.SECRET_KEY);
+      next();
+    } catch (err) {
+      res.status(401);
+      res.send("Anda harus login lagi.");
+    }
+  } else {
+    res.status(401);
+    res.send("Anda harus login terlebih dahulu.");
   }
 });
 
