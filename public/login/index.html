@@ -39,7 +39,7 @@
           }),
         }).then(async (response) => {
           if (response.ok) {
-            location.href = "/index.html";
+            location.href = "/";
           } else {
             const pesan = await response.text();
             alert(pesan);

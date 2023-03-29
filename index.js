@@ -25,7 +25,7 @@ app.use((req, res, next) => {
         jwt.verify(req.cookies.token, process.env.SECRET_KEY);
         authorized = true;
       } catch (err) {
-        res.setHeader("Cache-Control", "no-store"); // khusus Vercel
+        res.setHeader("Cache-Control", "no-store");
         res.clearCookie("token");
       }
     }
@@ -65,6 +65,7 @@ app.post("/api/login", async (req, res) => {
       const token = jwt.sign(results.rows[0], process.env.SECRET_KEY);
       res.cookie("token", token);
       res.send("Login berhasil.");
+      console.log(token);
     } else {
       res.status(401);
       res.send("Kata sandi salah.");
@@ -80,11 +81,7 @@ app.get("/api/saya", (req, res) => {
   res.json(me);
 });
 
-// app.get("/api/logout", (_req, res) => {
-//   res.setHeader("Cache-Control", "no-store"); // khusus Vercel
-//   res.clearCookie("token");
-//   res.send("Logout berhasil.");
-// });
+// ROUTE DATA ANAK
 
 app.get("/api/anak", async (_req, res) => {
   const results = await client.query("SELECT * FROM anak");
@@ -124,6 +121,8 @@ app.delete("/api/anak/:nik_anak", async (req, res) => {
   );
   res.send("data anak berhasil dihapus.");
 });
+
+// ROUTE DATA PENGADOPSI
 
 app.listen(3000, () => {
   console.log("Server berhasil berjalan.");

@@ -11,6 +11,7 @@
   <body>
     <input type="checkbox" id="nav-toggle">
     <div class="sidebar">
+
       <div class="sidebar-brand">
         <h2><span class="las la-clinic-medical"></span><span>Panti'Asuhan</span></h2>
       </div>
@@ -19,7 +20,7 @@
       <ul>
         <li>
           <a href="" class="active"><span class="las la-home"></span>
-          <span>HOME</span>
+          <span>HOME</span></a>
         </li>
         <li>
           <a href=""><span class="las la-stethoscope"></span>
@@ -34,16 +35,18 @@
           <span>DATA DONASI</span>
         </li>
         <li>
-          <a href=""><span class="las la-user-search"></span>
+          <a href=""><span class="las la-history"></span>
           <span>ABOUT</span>
         </li>
         <li>
-          <a href=""><span class="las la-user-history"></span>
+          <a href=""><span class="las la-book-medical"></span>
           <span>LOGOUT</span>
         </li>
       </ul>
     </div>
   </div>
+
+
   <div class="main-content">
     <header>
       <h2>
@@ -57,13 +60,14 @@
       </div>
 
       <div class="user-wrapper">
-        <img src="/assets/all.jpg">
+        <img src="/assets/all.jpg" width="40px" height="40px" alt="">
         <div>
           <h4>Administrator</h4>
           <small>Super Admin</small>
         </div>
       </div>
     </header>
+
     <main>
       <div class="cards">
 
@@ -77,20 +81,37 @@
             <span class="las la-users"></span>
           </div>
         </div>
+
+        <div class="card-single">
+          <div>
+            <h1>12</h1>
+            <span>Manejo de doctores</span>
+          </div>
+          <div>
+            <span class="las la-stethoscope"></span>
+          </div>
+        </div>
+
         <div class="card-single">
           <div>
             <h1>25</h1>
+            <span>Manejo de pacientes</span>
+          </div>
+          <div>
             <span class="las la-wheelchair"></span>
           </div>
         </div>
+
         <div class="card-single">
+          <div>
           <h1>2</h1>
-          <span>Nievas consultas</span>
+          <span>Nuevas consultas</span>
         </div>
         <div>
           <span class="las la-wpforms"></span>
         </div>
       </div>
+    </div>
 
       <div class="recent-grind">
         <div class="project">
@@ -105,13 +126,106 @@
                   <table width="100%">
                     <thead>
                       <tr>
-                        <td></td>
+                        <td>Nombre</td>
+                        <td>Apellindo</td>
+                        <td>Estado</td>
                       </tr>
                     </thead>
+                    <tbody>
+                      <tr>
+                        <td>Jhon Deiby</td>
+                        <td>Salazar Rayo</td>
+                        <td>
+                          <span class="status green"></span> Bueno
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Victor Manuel</td>
+                        <td>Ciro Ledesma</td>
+                        <td>
+                          <span class="status red"></span> Malo
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Julian Andres</td>
+                        <td>Quesada Carmona</td>
+                        <td>
+                          <span class="status yellow"></span> Intermedio
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Jhon Deiby</td>
+                        <td>Salazar Rayo</td>
+                        <td>
+                          <span class="status green"></span> Bueno
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Victor Manuel</td>
+                        <td>Ciro Ledesma</td>
+                        <td>
+                          <span class="status red"></span> Malo
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Julian Andres</td>
+                        <td>Quesada Carmona</td>
+                        <td>
+                          <span class="status yellow"></span> Intermedio
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Jhon Deiby</td>
+                        <td>Salazar Rayo</td>
+                        <td>
+                          <span class="status green"></span> Bueno
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Victor Manuel</td>
+                        <td>Ciro Ledesma</td>
+                        <td>
+                          <span class="status red"></span> Malo
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Julian Andres</td>
+                        <td>Quesada Carmona</td>
+                        <td>
+                          <span class="status yellow"></span> Intermedio
+                        </td>
+                      </tr>
+                    </tbody>
                   </table>
                 </div>
               </div>
             </div>
+        </div>
+
+        <div class="customers">
+          <div class="card">
+            <div class="card-header">
+              <h3>Nuevos pacientes </h3>
+              <button>Mostrar todo <span class="las la-arrows-right">
+              </span></button>
+            </div>
+            <div class="card-body">
+              <div class="customer">
+                <div class="info">
+                  <img src="" alt="">
+                  <div>
+                    <h4>Ana Maris Acosta</h4>
+                    <small>Diarre</small>
+                  </div>
+                </div>
+                <div class="contact">
+                  <span class="las la-user-circle"></span>
+                  <span class="lab la-whatsapp"></span>
+                  <span class="las la-phone"></span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </main>
