@@ -12,21 +12,17 @@
       <h1>ADMIN</h1>
       <form name="login">
         <label>Username</label><br />
-        <input type="name" name="username" placeholder="masukkan username" />
+        <input type="name" name="username" required />
 
         <label>Password</label>
-        <input
-          type="password"
-          name="password"
-          placeholder="masukkan password"
-        />
+        <input type="password" name="password" required />
         <button>Login</button>
       </form>
     </div>
     <script>
       document.login.onsubmit = (e) => {
         e.preventDefault();
-        const passwordd = document.login.password.value;
+        const password = document.login.password.value;
         const username = document.login.username.value;
         fetch("/api/login-admin", {
           method: "POST",
@@ -34,12 +30,12 @@
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            password,
             username,
+            password,
           }),
         }).then(async (response) => {
           if (response.ok) {
-            location.href = "/";
+            location.href = "/home";
           } else {
             const pesan = await response.text();
             alert(pesan);
