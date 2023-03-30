@@ -105,15 +105,15 @@ app.get("/api/anak/:nik_anak", async (req, res) => {
   res.json(results.rows[0]);
 });
 
-// app.post("/api/anak", async (req, res) => {
-//   const salt = await bcrypt.genSalt();
-//   const hash1 = await bcrypt.hash(req.body.password, salt);
-//   const hash2 = await bcrypt.hash(req.body.nik_anak, salt);
-//   await client.query(
-//     `INSERT INTO anak (nik_anak,nama,umur,jenis_kelamin) VALUES ('${req.body.nik_anak}', '${req.body.nama}',${req.body.umur}', '${req.body.jenis_kelamin}','${hash1}',${hash2})`
-//   );
-//   res.send("anak berhasil ditambahkan.");
-// });
+app.post("/api/tambah-anak", async (req, res) => {
+  const salt = await bcrypt.genSalt();
+  const hash1 = await bcrypt.hash(req.body.password, salt);
+  const hash2 = await bcrypt.hash(req.body.nik_anak, salt);
+  await client.query(
+    `INSERT INTO anak (nik_anak,nama,umur,jenis_kelamin) VALUES ('${req.body.nik_anak}', '${req.body.nama}',${req.body.umur}', '${req.body.jenis_kelamin}','${hash1}',${hash2})`
+  );
+  res.send("anak berhasil ditambahkan.");
+});
 
 app.put("/api/anak/:nik_anak", async (req, res) => {
   const salt = await bcrypt.genSalt();

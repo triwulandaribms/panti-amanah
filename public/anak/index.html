@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daftar Data Anak</title>
+    <style>
+      body {
+        background-color: rgb(233, 236, 224);
+        align-items: center;
+      }
+
+      table {
+        border: 2px solid;
+        align-items: center;
+      }
+
+      th {
+        background-color: rgb(230, 123, 61);
+      }
+
+      button {
+        width: 10%;
+        bottom: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Daftar Anak Panti Amanah</h1>
+    <table>
+      <thead>
+        <th>Nik Anak</th>
+        <th>Nama</th>
+        <th>Umur</th>
+        <th>Jenis Kelamin</th>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <form name="tambah-anak">
+      <button>Data</button>
+    </form>
+
+    <form name="edit-anak">
+      <button>Edit</button>
+    </form>
+
+    <form name="hapus-anak">
+      <button>Hapus</button>
+    </form>
+
+    <script>
+      fetch("/api/anak")
+        .then((response) => response.json())
+        .then((anak) => {
+          const tbody = document.querySelector("tbody");
+          anak.forEach((nak) => {
+            const tr = document.createElement("tr");
+
+            const nikAnak = document.createElement("td");
+            nikAnak.textContent = nak.nik_anak;
+            tr.appendChild(nikAnak);
+
+            const namaAnak = document.createElement("td");
+            namaAnak.textContent = nak.nama;
+            tr.appendChild(namaAnak);
+
+            const umurAnak = document.createElement("td");
+            umurAnak.textContent = nak.umur;
+            tr.appendChild(umurAnak);
+
+            const jenisKelamin = document.createElement("td");
+            jenisKelamin.textContent = nak.jenis_kelamin;
+            tr.appendChild(jenisKelamin);
+          });
+        });
+
+      const tambahAnak = document.querySelector("tambah-anak");
+      tambahAnak.onclick = () => {
+        fetch("/api/tambah-anak").then((response) => {
+          if (response.ok) {
+            location.href = "/form.html";
+          }
+        });
+      };
+
+      const editAnak = document.querySelector("edit-anak");
+      editAnak.onclick = () => {
+        fetch("/api/anak/:nik_anak").then((response) => {
+          if (response.ok) {
+            location.href = "/edit.html";
+          }
+        });
+      };
+
+      const hapusAnak = document.querySelector("hapus-anak");
+      hapusAnak.onclick = () => {
+        fetch("/api/anak/:nik_anak").then((response) => {
+          if (response.ok) {
+            location.href = "/hapus.html";
+          }
+        });
+      };
+    </script>
+  </body>
+</html>
