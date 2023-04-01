@@ -10,48 +10,46 @@
   <body>
     <div class="container-tiner">
       <h1 class="form-tittle">Formulir Data Anak</h1>
-      <form action="#">
+      <form name="tambah">
         <div class="main-user-info">
           <div class="user-input-box">
-            <label for="fullName">Full Name</label>
-            <input type="text" name="fullName" id="fullName" />
+            <label>Nik Anak</label>
+            <input type="text" name="nik_anak" id="nik-anak" />
           </div>
           <div class="user-input-box">
-            <label for="username">Full Username</label>
-            <input type="text" name="username" id="username" />
+            <label for="username">Nama Lengkap</label>
+            <input type="text" name="nama" id="nama" />
           </div>
           <div class="user-input-box">
-            <label for="email">Email</label>
-            <input type="text" name="email" id="email" />
+            <label>Umur</label>
+            <input type="text" name="umur" id="umur" />
           </div>
           <div class="user-input-box">
-            <label for="phoneNumber">Phone Number</label>
-            <input type="text" name="phoneNumber" id="phoneNumber" />
-          </div>
-          <div class="user-input-box">
-            <label for="password">Password</label>
-            <input type="text" name="password" id="password" />
-          </div>
-          <div class="user-input-box">
-            <label for="confirmPassword">Confirm Password</label>
-            <input type="text" name="confirmPassword" id="confirmPassword" />
-          </div>
-        </div>
-        <div class="gender-details-box">
-          <span class="gender-tittle">Gender</span>
-          <div class="gender-category">
-            <input type="radio" name="gender" id="male" />
-            <label for="male">Male</label>
-            <input type="radio" name="gender" id="female" />
-            <label for="female">female</label>
-            <input type="radio" name="gender" id="other" />
-            <label for="male">Other</label>
+            <label>Jenis Kelamin</label>
+            <input type="text" name="jenis_kelamin" id="jenis-kelamin" />
           </div>
         </div>
         <div class="form-submit-btn">
-          <input type="submit" value="register" />
+          <button href="./index.html">SIMPAN</button>
         </div>
       </form>
     </div>
+
+    <script>
+      document.tambah.onsubmit = async (e) => {
+        e.preventDefault();
+        const data = new FormData();
+        data.append("nik_anak", document.tambah.nik_anak.value);
+        data.append("nama", document.tambah.nama.value);
+        data.append("umur", document.tambah.umur.value);
+        data.append("jenis_kelamin", document.tambah.jenis_kelamin.value);
+        console.log(data);
+        await fetch("/api/tambah", {
+          method: "POST",
+          body: data,
+        });
+        location.href = "./index.html";
+      };
+    </script>
   </body>
 </html>

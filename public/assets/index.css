@@ -171,7 +171,7 @@ main{
     min-height: calc(100vh - 90px);
 }
 
-.card{
+.cards-cards{
     display: grid;
     grid-template-columns: repeat(4,1fr);
     grid-gap: 2rem;

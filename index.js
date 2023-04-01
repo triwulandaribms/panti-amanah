@@ -1,19 +1,35 @@
 import dotenv from "dotenv";
 dotenv.config();
-
 import express from "express";
 
-import { client } from "./db.js";
+import {
+  getAllChild,
+  getChildNik,
+  addDataAnak,
+  editDataAnak,
+  hapusDataAnak,
+} from "./route/data.js";
 
+import { client } from "./db.js";
 import jwt from "jsonwebtoken";
 import cookieParser from "cookie-parser";
 import bcrypt from "bcryptjs";
 
 const app = express();
 
+app.use(express.static("public"));
+// BAGIAN UNTUK MENGAKSES FILE STATIS
+
+// import path from "path";
+// const __dirname = path.dirname(new URL(import.meta.url).pathname);
+// app.use(express.static(path.resolve(__dirname, "public")));
+
 // MIDDLEWARE
 // untuk mengelola cookienya
 app.use(cookieParser());
+
+// BAGIAN UNTUK MEMBACA BODY BERFORMAT JSON
+app.use(express.json());
 
 app.use((req, res, next) => {
   if (req.path.startsWith("/api/login") || req.path.startsWith("/assets")) {
@@ -50,22 +66,12 @@ app.use((req, res, next) => {
   }
 });
 
-// BAGIAN UNTUK MENGAKSES FILE STATIS
-app.use(express.static("public"));
-
-// import path from "path";
-// const __dirname = path.dirname(new URL(import.meta.url).pathname);
-// app.use(express.static(path.resolve(__dirname, "public")));
-
-// BAGIAN UNTUK MEMBACA BODY BERFORMAT JSON
-app.use(express.json());
-
 // ROUTE OTORISASI
 app.post("/api/login", async (req, res) => {
   const results = await client.query(
-    `SELECT * FROM admin WHERE id = '${req.body.id}'`
+    `SELECT * FROM admin WHERE username = '${req.body.username}'`
   );
-  console.log(results);
+
   if (results.rows.length > 0) {
     if (await bcrypt.compare(req.body.password, results.rows[0].password)) {
       const token = jwt.sign(results.rows[0], process.env.SECRET_KEY);
@@ -84,54 +90,26 @@ app.post("/api/login", async (req, res) => {
 app.post("/api/admin", async (req, res) => {
   const salt = await bcrypt.genSalt();
   const hash = await bcrypt.hash(req.body.password, salt);
-  console.log(hash);
   await client.query(
-    `INSERT INTO admin (id,password,username) VALUES ('${req.body.id}', ('${req.body.username}, '${hash}')`
+    `INSERT INTO admin (username,password) VALUES ('${req.body.username}','${hash}')`
   );
-  res.send("Berhasil login");
+  res.send("Berhasil tambah admin");
+});
+
+app.delete("/api/hapus/:username", async (req, res) => {
+  await client.query(
+    `DELETE FROM admin WHERE username = '${req.params.username}'`
+  );
+  res.send("berhasil menghapus");
 });
 
 // ROUTE DATA ANAK
 
-app.get("/api/anak", async (_req, res) => {
-  const results = await client.query("SELECT * FROM anak");
-  res.json(results.rows);
-});
-
-app.get("/api/anak/:nik_anak", async (req, res) => {
-  const results = await client.query(
-    `SELECT * FROM anak WHERE nik_anak = ${req.params.nik_anak}`
-  );
-  res.json(results.rows[0]);
-});
-
-app.post("/api/tambah-anak", async (req, res) => {
-  const salt = await bcrypt.genSalt();
-  const hash1 = await bcrypt.hash(req.body.password, salt);
-  const hash2 = await bcrypt.hash(req.body.nik_anak, salt);
-  await client.query(
-    `INSERT INTO anak (nik_anak,nama,umur,jenis_kelamin) VALUES ('${req.body.nik_anak}', '${req.body.nama}',${req.body.umur}', '${req.body.jenis_kelamin}','${hash1}',${hash2})`
-  );
-  res.send("anak berhasil ditambahkan.");
-});
-
-app.put("/api/anak/:nik_anak", async (req, res) => {
-  const salt = await bcrypt.genSalt();
-  const hash = await bcrypt.hash(req.body.nik_anak, salt);
-  await client.query(
-    `UPDATE anak SET nik_anak = '${hash}', nama = '${req.body.nama}', umur = '${req.body.umur}', jenis_kelamin = '${req.body.jenis_kelamin}' WHERE nik_anak = ${req.params.nik_anak}`
-  );
-  res.send("anak berhasil diedit.");
-});
-
-app.delete("/api/anak/:nik_anak", async (req, res) => {
-  await client.query(
-    `DELETE FROM anak WHERE nik_anak = ${req.params.nik_anak}`
-  );
-  res.send("data anak berhasil dihapus.");
-});
-
-// ROUTE DATA PENGADOPSI
+app.get("/api/anak", getAllChild);
+app.get("/api/anak/:nik_anak", getChildNik);
+app.post("/api/tambah", addDataAnak);
+app.put("/api/edit/:nik_anak", editDataAnak);
+app.delete("/api/hapus/:nik_anak", hapusDataAnak);
 
 app.listen(3000, () => {
   console.log("Server berhasil berjalan.");

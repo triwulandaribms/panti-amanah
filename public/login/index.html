@@ -5,10 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login Admin</title>
-    <link rel="stylesheet" href="/assets/login.css" />
+    <link rel="stylesheet" href="../assets/login.css" />
   </head>
   <body>
-    <div class="main">
+    <div class="main-main">
       <h1>ADMIN</h1>
       <form name="login">
         <label>Username</label><br />
@@ -16,15 +16,16 @@
 
         <label>Password</label>
         <input type="password" name="password" required />
+
         <button>Login</button>
       </form>
     </div>
     <script>
       document.login.onsubmit = (e) => {
         e.preventDefault();
-        const password = document.login.password.value;
         const username = document.login.username.value;
-        fetch("/api/login-admin", {
+        const password = document.login.password.value;
+        fetch("/api/login", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -35,7 +36,7 @@
           }),
         }).then(async (response) => {
           if (response.ok) {
-            location.href = "/home";
+            location.href = "../home/index.html";
           } else {
             const pesan = await response.text();
             alert(pesan);

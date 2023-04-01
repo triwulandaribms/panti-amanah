@@ -8,7 +8,7 @@ body{
     font-family: 'Times New Roman';
 }
 
-.main{
+.main-main{
     position: absolute;
     left: 50%;
     transform: translate(-50%, 50%);
@@ -18,7 +18,7 @@ body{
     box-shadow: 0 0 20px rgba(255,255,255,.7);
 }
 
-.main h1{
+.main-main h1{
     text-align: center;
     color: #fafafa;
     margin-bottom: 30px;
@@ -26,14 +26,14 @@ body{
     border-bottom: 4px solid #2979ff;
 }
 
-.main label{
+.main-main label{
     text-align: left;
     font-size: 15px;
     color: hsl(187, 31%, 94%);
     font-weight: bold;
 }
 
-.main input{
+.main-main input{
     width: 93%;
     padding: 8px 10px;
     margin-bottom: 15px;
@@ -44,7 +44,7 @@ body{
     font-size: 13px;
     font-weight: bold;
 }
-.main #button {
+.main-main #button {
     width: 100%;
     padding: 5px 0;
     border: none;
