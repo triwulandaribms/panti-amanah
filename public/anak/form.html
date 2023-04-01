@@ -14,19 +14,24 @@
         <div class="main-user-info">
           <div class="user-input-box">
             <label>Nik Anak</label>
-            <input type="text" name="nik_anak" id="nik-anak" />
+            <input type="text" name="nik_anak" id="nik-anak" required />
           </div>
           <div class="user-input-box">
             <label for="username">Nama Lengkap</label>
-            <input type="text" name="nama" id="nama" />
+            <input type="text" name="nama" id="nama" required />
           </div>
           <div class="user-input-box">
             <label>Umur</label>
-            <input type="text" name="umur" id="umur" />
+            <input type="text" name="umur" id="umur" required />
           </div>
           <div class="user-input-box">
             <label>Jenis Kelamin</label>
-            <input type="text" name="jenis_kelamin" id="jenis-kelamin" />
+            <input
+              type="text"
+              name="jenis_kelamin"
+              id="jenis-kelamin"
+              required
+            />
           </div>
         </div>
         <div class="form-submit-btn">
@@ -39,10 +44,10 @@
       document.tambah.onsubmit = async (e) => {
         e.preventDefault();
         const data = new FormData();
-        data.append("nik_anak", document.tambah.nik_anak.value);
+        data.append("nik-anak", document.tambah.nik_anak.value);
         data.append("nama", document.tambah.nama.value);
         data.append("umur", document.tambah.umur.value);
-        data.append("jenis_kelamin", document.tambah.jenis_kelamin.value);
+        data.append("jenis-kelamin", document.tambah.jenis_kelamin.value);
         console.log(data);
         await fetch("/api/tambah", {
           method: "POST",

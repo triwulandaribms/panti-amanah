@@ -7,6 +7,12 @@
     <title>Dashboard</title>
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     <link rel="stylesheet" href="/assets/index.css" />
+    <style>
+      .user-wrapper img{
+        width:40px;
+        height:40px;
+      }
+    </style>
   </head>
   <body>
     <input type="checkbox" id="nav-toggle">
@@ -19,7 +25,7 @@
     <div class="sidebar-menu">
       <ul>
         <li>
-          <a href="" class="active"><span class="las la-home"></span>
+          <a href="../home/index.html" class="active"><span class="las la-home"></span>
           <span>HOME</span></a>
         </li>
         <li>
@@ -27,19 +33,19 @@
           <span>DATA ANAK</span>
         </li>
         <li>
-          <a href=""><span class="las la-user"></span>
+          <a href="../adopsi/adopsi.html"><span class="las la-user"></span>
           <span>DATA ADOPSI</span>
         </li>
         <li>
-          <a href=""><span class="las la-user-injured"></span>
+          <a href="../infak/infak.html"><span class="las la-user-injured"></span>
           <span>DATA DONASI</span>
         </li>
         <li>
-          <a href=""><span class="las la-history"></span>
+          <a href="../about/about.html"><span class="las la-history"></span>
           <span>ABOUT</span>
         </li>
         <li>
-          <a href=""><span class="las la-book-medical"></span>
+          <a href="../login/index.html"><span class="las la-book-medical"></span>
           <span>LOGOUT</span>
         </li>
       </ul>
@@ -60,7 +66,7 @@
       </div>
 
       <div class="user-wrapper">
-        <img src="/assets/all.jpg" width="40px" height="40px" alt="">
+        <img src="/assets/all.jpg">
         <div>
           <h4>Administrator</h4>
           <small>Super Admin</small>
@@ -74,7 +80,7 @@
         <div class="card-single">
           <div>
             <h1>5</h1>
-            <span>Manejo de Usuarios</span>
+            <span>Bercerita</span>
           </div>
           
           <div>
@@ -83,30 +89,36 @@
         </div>
 
         <div class="card-single">
+          
           <div>
             <h1>12</h1>
-            <span>Manejo de doctores</span>
+            <span>Bersama</span>
           </div>
+
           <div>
             <span class="las la-stethoscope"></span>
           </div>
+
         </div>
 
         <div class="card-single">
+          
           <div>
             <h1>25</h1>
-            <span>Manejo de pacientes</span>
+            <span>Menjaga</span>
           </div>
+
           <div>
             <span class="las la-wheelchair"></span>
           </div>
+
         </div>
 
         <div class="card-single">
           <div>
-          <h1>2</h1>
-          <span>Nuevas consultas</span>
-        </div>
+            <h1>2</h1>
+            <span>Beriman</span>
+          </div>
         <div>
           <span class="las la-wpforms"></span>
         </div>
@@ -117,86 +129,53 @@
         <div class="project">
             <div class="card">
               <div class="card-header">
-                <h3>Pacientes recientes</h3>
+                <h3>Panti Asuhan Amanah</h3>
 
-                <button>Mostrar todo <span class="las la-arrow-right"></span></button>
+                <button>Yayasan<span class="las la-arrow-right"></span></button>
               </div>
               <div class="card-body">
                 <div class="table-responsive">
                   <table width="100%">
                     <thead>
-                      <tr>
-                        <td>Nombre</td>
-                        <td>Apellindo</td>
-                        <td>Estado</td>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>Jhon Deiby</td>
-                        <td>Salazar Rayo</td>
-                        <td>
-                          <span class="status green"></span> Bueno
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Victor Manuel</td>
-                        <td>Ciro Ledesma</td>
-                        <td>
-                          <span class="status red"></span> Malo
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Julian Andres</td>
-                        <td>Quesada Carmona</td>
-                        <td>
-                          <span class="status yellow"></span> Intermedio
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Jhon Deiby</td>
-                        <td>Salazar Rayo</td>
-                        <td>
-                          <span class="status green"></span> Bueno
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Victor Manuel</td>
-                        <td>Ciro Ledesma</td>
-                        <td>
-                          <span class="status red"></span> Malo
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Julian Andres</td>
-                        <td>Quesada Carmona</td>
-                        <td>
-                          <span class="status yellow"></span> Intermedio
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Jhon Deiby</td>
-                        <td>Salazar Rayo</td>
-                        <td>
-                          <span class="status green"></span> Bueno
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Victor Manuel</td>
-                        <td>Ciro Ledesma</td>
-                        <td>
-                          <span class="status red"></span> Malo
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Julian Andres</td>
-                        <td>Quesada Carmona</td>
-                        <td>
-                          <span class="status yellow"></span> Intermedio
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
+                    <p>Panti Asuhan adalah sebuah lembaga sosial yang menyediakan tempat tinggal, makanan, pendidikan, 
+                      dan perawatan bagi anak-anak yang tidak memiliki keluarga atau keluarganya 
+                      tidak mampu memenuhi kebutuhan dasar mereka. 
+                      Panti asuhan biasanya dijalankan oleh organisasi nirlaba atau lembaga pemerintah.</p><br>
+
+                      <p>Di panti asuhan, anak-anak yang tinggal di sana akan mendapatkan perlindungan, pengasuhan, 
+                        dan pendidikan yang dibutuhkan untuk mengembangkan potensi mereka. Selain itu, panti asuhan 
+                        juga memberikan tempat bagi anak-anak yang terlantar atau mengalami kesulitan dalam keluarga mereka untuk mendapatkan tempat yang aman dan terlindungi. 
+                        Tujuan utama dari panti asuhan adalah untuk membantu anak-anak dalam memenuhi 
+                        kebutuhan dasar mereka dan memberikan kesempatan bagi mereka untuk tumbuh dan berkembang secara optimal.</p><br>
+
+                        <p>Salah satunya panti asuhan amanah ini, menyediakan fasilitas yang memadai bagi anak - anak. Panti Asuhan Amanah ini
+                          merupakan panti asuhan yang terletak di daerah Banyumas, Jawa Tengah. Panti Asuhan Amanah ini hanya menampung anak - anak
+                          dari usia 5 samapi 12 tahun saja. Di Panti Asuhan ini menyediakan atau membuka adopsi anak. Jadi bagi seseorang yang ingin
+                          mengadopsi anak bisa langsung saja ke Panti Asuh Amanah ini.
+                        </p> <br>
+
+                        <p>Adapun beberapa persyaratan yang diberlakukan oleh Panti Asuhan Amanah ini, berikut persyaratannya </p> <br>
+                          
+                          <h4>Persyaratan untuk anak:</h4> <br>
+                          <p>*Beriman & Bertakwa</p>
+                          <p>*Berusia 5 sampai 18 tahun</p>
+                          <p>*Yatim Piatu atau terlantar</p>
+                          <p>*Keluarga kurang mampu</p>
+                          <p>*Sehat rohani dan jasmani</p> <br>
+
+                          <h4>Persyaratan untuk pengadopsi</h4><br>
+                          <p>*Beriman & Bertakwa</p>
+                          <p>*Mampu membiayai kelangsungan hidup anak</p>
+                          <p>*Gaji minimal 3 juta perbulan</p>
+                          <p>*Sehat jasmani & rohani</p>
+                        
+                        <tr>
+                          <td>Bersyukur</td>
+                          <td>Bercerita</td>
+                          <td>Beriman</td>
+                        </tr>
+                      </thead>
+                   </table>
                 </div>
               </div>
             </div>
@@ -204,23 +183,18 @@
 
         <div class="customers">
           <div class="card">
-            <div class="card-header">
-              <h3>Nuevos pacientes </h3>
-              <button>Mostrar todo <span class="las la-arrows-right">
-              </span></button>
-            </div>
             <div class="card-body">
               <div class="customer">
                 <div class="info">
                   <img src="" alt="">
                   <div>
-                    <h4>Ana Maris Acosta</h4>
-                    <small>Diarre</small>
+                    <h4>TRI WULANDARI</h4>
+                    <small>MAHASISWA</small>
                   </div>
                 </div>
                 <div class="contact">
                   <span class="las la-user-circle"></span>
-                  <span class="lab la-whatsapp"></span>
+                  <span class="lab la-whatsapp" href="https://web.whatsapp.com/"></span>
                   <span class="las la-phone"></span>
                 </div>
               </div>

@@ -21,6 +21,7 @@
       table {
         border-collapse: collapse;
       }
+     
 
     </style>
   </head>
@@ -35,7 +36,7 @@
     <div class="sidebar-menu">
       <ul>
         <li>
-          <a href="" class="active"><span class="las la-home"></span>
+          <a href="../home/index.html" class="active"><span class="las la-home"></span>
           <span>HOME</span></a>
         </li>
         <li>
@@ -43,19 +44,19 @@
           <span>DATA ANAK</span>
         </li>
         <li>
-          <a href=""><span class="las la-user"></span>
+          <a href="../adopsi/adopsi.html"><span class="las la-user"></span>
           <span>DATA ADOPSI</span>
         </li>
         <li>
-          <a href=""><span class="las la-user-injured"></span>
+          <a href="../infak/infak.html"><span class="las la-user-injured"></span>
           <span>DATA DONASI</span>
         </li>
         <li>
-          <a href=""><span class="las la-history"></span>
+          <a href="../about/about.html"><span class="las la-history"></span>
           <span>ABOUT</span>
         </li>
         <li>
-          <a href=""><span class="las la-book-medical"></span>
+          <a href="../login/index.html"><span class="las la-book-medical"></span>
           <span>LOGOUT</span>
         </li>
       </ul>
@@ -169,7 +170,6 @@
       </div>
     </main>
   </div>
-
     <script>
       fetch("/api/anak")
         .then((response) => response.json())
@@ -219,7 +219,7 @@
                     nik_anak = ${anak[a].nik_anak} 
                     nama = ${anak[a].nama}
                     umur= ${anak[a].umur} 
-                    jenis_kelamin= ${anak[a].jenis_kelamin}`
+                    jenis_kelamin= ${anak[a].jenis_kelamin}?`
 
                 )){
                     fetch(`/api/hapus${anak[a].nik_anak}`,{
