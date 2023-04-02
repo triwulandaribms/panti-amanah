@@ -36,7 +36,7 @@
           }),
         }).then(async (response) => {
           if (response.ok) {
-            location.href = "../home/index.html";
+            location.href = "../index.html";
           } else {
             const pesan = await response.text();
             alert(pesan);
