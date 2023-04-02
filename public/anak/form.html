@@ -35,25 +35,31 @@
           </div>
         </div>
         <div class="form-submit-btn">
-          <button href="./index.html">SIMPAN</button>
+          <button href="../anak/index.html">SIMPAN</button>
         </div>
       </form>
     </div>
 
     <script>
-      document.tambah.onsubmit = async (e) => {
+      document.tambah.onsubmit = (e) => {
         e.preventDefault();
-        const data = new FormData();
-        data.append("nik-anak", document.tambah.nik_anak.value);
-        data.append("nama", document.tambah.nama.value);
-        data.append("umur", document.tambah.umur.value);
-        data.append("jenis-kelamin", document.tambah.jenis_kelamin.value);
-        console.log(data);
-        await fetch("/api/tambah", {
+        const nik_anak = document.tambah.nik_anak.value;
+        const nama = document.tambah.nama.value;
+        const umur = document.tambah.umur.value;
+        const jenis_kelamin = document.tambah.jenis_kelamin.value;
+        fetch("/api/tambah", {
           method: "POST",
-          body: data,
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            nik_anak,
+            nama,
+            umur,
+            jenis_kelamin,
+          }),
         });
-        location.href = "./index.html";
+        location.href = "../anak/index.html";
       };
     </script>
   </body>
