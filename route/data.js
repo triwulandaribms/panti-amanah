@@ -36,4 +36,22 @@ export async function hapusDataAnak(req, res) {
 
 // DATA PENGADOPSI
 
-// DATA PENGINFAK
+// DATA PENDONASI
+export async function getAllDonasi(_req, res) {
+  await client.query("SELECT * FROM penginfak ORDER BY nik_infak ASC");
+  res.json(results.rows);
+}
+
+export async function addDataDonasi(req, res) {
+  await client.query(
+    `INSERT INTO penginfak (nik_infak,nama,alamat,jumlah_uang) VALUES ('${req.body.nik_infak}','${req.body.nama}','${req.body.alamat}','${req.body.jumlah_uang}')`
+  );
+  res.send("pendonasi berhasil ditambahkan.");
+}
+
+export async function hapusDataDonasi(req, res) {
+  await client.query(
+    `DELETE FROM penginfak WHERE nik_infak = '${req.params.nik_infak}'`
+  );
+  res.send("data pendonasi berhasil dihapus.");
+}

@@ -5,40 +5,166 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Edit Data</title>
-    <link rel="stylesheet" href="../assets/form.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    intergrity="sha512-kfkfwYDsLKI1wq6LFn18zNdLGxu9YAA1QvwINKs4PhcE1QSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXge10g"
+    crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="../assets/update.css" />
   </head>
+  <style>
+      img{
+        width: 40px;
+        height: 40px;
+      }
+      h3{
+        text-align: center;
+      }
+      p{
+        margin-left: 20px;
+      }
+      form{
+        margin-left: 5px;
+      }
+  </style>
   <body>
-    <div class="container-tiner">
-      <h1 class="form-tittle">Edit Data Anak</h1>
-      <form name="edit">
-        <div class="main-user-info">
-          <div class="user-input-box">
-            <label>Nik Anak</label>
-            <input type="text" name="nik_anak" id="nik-anak" required />
-          </div>
-          <div class="user-input-box">
-            <label for="username">Nama Lengkap</label>
-            <input type="text" name="nama" id="nama" required />
-          </div>
-          <div class="user-input-box">
-            <label>Umur</label>
-            <input type="text" name="umur" id="umur" required />
-          </div>
-          <div class="user-input-box">
-            <label>Jenis Kelamin</label>
-            <input
-              type="text"
-              name="jenis_kelamin"
-              id="jenis-kelamin"
-              required
-            />
-          </div>
-        </div>
-        <div class="form-submit-btn">
-          <button>SIMPAN</button>
-        </div>
-      </form>
+    <input type="checkbox" id="nav-toggle">
+    <div class="sidebar">
+
+      <div class="sidebar-brand">
+        <h2><span class="fa-solid fa-school-circle-check"></span><span>Panti'Asuhan</span></h2>
+      </div>
+
+    <div class="sidebar-menu">
+      <ul>
+        <li>
+          <a href="../index.html" class="active"><span class="fa-solid fa-house"></span>
+          <span>HOME</span></a>
+        </li>
+        <li>
+          <a href="../anak/index.html"><span class="fa-sharp fa-solid fa-children"></span>
+          <span>DATA ANAK</span>
+        </li>
+        <li>
+          <a href="../adopsi/adopsi.html"><span class="fa-solid fa-arrows-down-to-people"></span>
+          <span>DATA ADOPSI</span>
+        </li>
+        <li>
+          <a href="../infak/infak.html"><span class="fa-sharp fa-solid fa-comments-dollar"></span>
+          <span>DATA DONASI</span>
+        </li>
+        <li>
+          <a href="../about/about.html"><span class="fa-solid fa-address-card"></span>
+          <span>ABOUT</span>
+        </li>
+        <li>
+          <a href="../login/index.html"><span class="fa-solid fa-circle-xmark"></span>
+          <span>LOGOUT</span>
+        </li>
+      </ul>
     </div>
+  </div>
+
+  <div class="main-content">
+    <header>
+      <h2>
+        <label for="nav-toggle">
+          <span class="fa-solid fa-bars"></span>
+        </label>Panti Asuhan
+      </h2>
+      <div class="search-wrapper">
+        <span class="fa-solid fa-magnifying-glass"></span>
+        <input type="search" placeholder="Buscar aqui"/>
+      </div>
+
+      <div class="user-wrapper">
+        <img src="/assets/me.jpg">
+        <div>
+          <h4>Administrator</h4>
+          <small>Super Admin</small>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="cards-cards">
+        <div class="card-single">
+
+          <div>
+            <h1>"_"</h1>
+            <span>Bersama</span>
+          </div>
+          
+          <div>
+            <span class="fa-sharp fa-solid fa-store"></span>
+          </div>
+
+        </div>
+
+        <div class="card-single">
+          
+          <div>
+            <h1>*_*</h1>
+            <span>Menjaga</span>
+          </div>
+          
+          <div>
+            <span class="fa-solid fa-person-shelter"></span>
+          </div>
+
+        </div>
+
+        <div class="card-single">
+          
+          <div>
+            <h1>~_~</h1>
+            <span>Beriman</span>
+          </div>
+          
+          <div>
+            <span class="fa-sharp fa-solid fa-person-dots-from-line"></span>
+          </div>
+
+        </div>
+
+        <div class="card-single">
+          
+          <div>
+          <h1>^_^</h1>
+          <span>Bercerita</span>
+          </div>
+        
+          <div>
+          <span></span>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="content-isi">
+      <div class="content-isi2">
+          <div class="payment-pay">
+        <form name="edit"><br>
+          <h3>FORM EDIT DATA ANAK</h3><br>
+          <div class="user-guna">
+            <a href="#" class="btn"><i ></i></a>
+            <a href="#" class="btn"><i ></i></a>
+            <a href="#" class="btn"><i></i></a>
+          </div>
+          <p>Isi kolom - kolom yang ada dibawah ini sesuai dengan nik anak yang akan diedit</p><br>
+          <label>Nik Anak</label>
+          <input type="text" name="nik_anak" required autofocus /><br /><br />
+          <label>Nama Anak</label>
+          <input type="text" name="nama" required /><br /><br />
+          <label>Umur Anak</label>
+          <input type="text" name="umur" required /><br /><br />
+          <label>Jenis Kelamin</label>
+          <input type="text" name="jenis_kelamin" required /><br /><br />
+          <button>SIMPAN</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</main>
+</div>
 
     <script>
       const searchParams = new URLSearchParams(location.search);

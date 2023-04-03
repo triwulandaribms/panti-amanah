@@ -8,6 +8,9 @@ import {
   addDataAnak,
   editDataAnak,
   hapusDataAnak,
+  getAllDonasi,
+  addDataDonasi,
+  hapusDataDonasi,
 } from "./route/data.js";
 
 import { client } from "./db.js";
@@ -17,7 +20,6 @@ import bcrypt from "bcryptjs";
 
 const app = express();
 
-app.use(express.static("public"));
 // BAGIAN UNTUK MENGAKSES FILE STATIS
 
 // import path from "path";
@@ -87,6 +89,8 @@ app.post("/api/login", async (req, res) => {
   }
 });
 
+app.use(express.static("public"));
+
 app.post("/api/admin", async (req, res) => {
   const salt = await bcrypt.genSalt();
   const hash = await bcrypt.hash(req.body.password, salt);
@@ -104,12 +108,16 @@ app.delete("/api/hapus/:username", async (req, res) => {
 });
 
 // ROUTE DATA ANAK
-
 app.get("/api/anak", getAllChild);
 app.get("/api/anak/:nik_anak", getChildNik);
 app.post("/api/tambah", addDataAnak);
 app.put("/api/edit/:nik_anak", editDataAnak);
-app.delete("/api/hapus/:nik_anak", hapusDataAnak);
+app.delete("/api/child/:nik_anak", hapusDataAnak);
+
+// ROUTE DATA PENDONASI
+app.get("/api/donasi", getAllDonasi);
+app.post("/api/tambah", addDataDonasi);
+app.delete("/api/donasi/:nik_infak", hapusDataDonasi);
 
 app.listen(3000, () => {
   console.log("Server berhasil berjalan.");
