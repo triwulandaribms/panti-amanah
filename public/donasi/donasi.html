@@ -136,7 +136,7 @@
                 <div class="card-header">
                   <h3>Panti Asuhan Amanah</h3>
   
-                  <button>Yayasan<span class="las la-arrow-right"></span></button>
+                  <a href="../donasi/tampil.html"><h4>LIHAT DATA</h4></a>
                 </div>
                 <div class="card-body">
                   <div class="table-responsive">
@@ -156,7 +156,7 @@
         <div class="content-isi">
           <div class="content-isi2">
             <div class="payment-pay">
-              <form name="add">
+              <form name="tambah">
                 <label>Nik Pendonasi</label>
                 <input
                   type="text"
@@ -193,12 +193,12 @@
       </div>
 
       <script>
-        document.add.onsubmit = async (e)=>{
+        document.tambah.onsubmit = async (e)=>{
           e.preventDefault();
-          const nik_infak = document.add.nik_infak.value;
-          const nama = document.add.nama.value;
-          const alamat = document.add.alamat.value;
-          const jumlah_uang = document.add.jumlah_uang.value;
+          const nik_infak = document.tambah.nik_infak.value;
+          const nama = document.tambah.nama.value;
+          const alamat = document.tambah.alamat.value;
+          const jumlah_uang = document.tambah.jumlah_uang.value;
           fetch("/api/add", {
             method:"POST",
             headers: {

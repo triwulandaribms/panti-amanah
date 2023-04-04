@@ -11,6 +11,9 @@ import {
   getAllDonasi,
   addDataDonasi,
   hapusDataDonasi,
+  getAllAdopsi,
+  addDataAdopsi,
+  hapusDataAdopsi,
 } from "./route/data.js";
 
 import { client } from "./db.js";
@@ -19,12 +22,6 @@ import cookieParser from "cookie-parser";
 import bcrypt from "bcryptjs";
 
 const app = express();
-
-// BAGIAN UNTUK MENGAKSES FILE STATIS
-
-// import path from "path";
-// const __dirname = path.dirname(new URL(import.meta.url).pathname);
-// app.use(express.static(path.resolve(__dirname, "public")));
 
 // MIDDLEWARE
 // untuk mengelola cookienya
@@ -89,7 +86,15 @@ app.post("/api/login", async (req, res) => {
   }
 });
 
+// Untuk mengakses file statis
 app.use(express.static("public"));
+
+// Untuk mengakses file statis (khusus Vercel)
+// import path from "path";
+// import { fileURLToPath } from "url";
+// const __filename = fileURLToPath(import.meta.url);
+// const __dirname = path.dirname(__filename);
+// app.use(express.static(path.join(__dirname, "public")));
 
 app.post("/api/admin", async (req, res) => {
   const salt = await bcrypt.genSalt();
@@ -114,10 +119,22 @@ app.post("/api/tambah", addDataAnak);
 app.put("/api/edit/:nik_anak", editDataAnak);
 app.delete("/api/child/:nik_anak", hapusDataAnak);
 
+// ROUTE DATA PENGADOPSI
+app.get("/api/adopsi", getAllAdopsi);
+app.post("/api/nambah", addDataAdopsi);
+app.delete("/api/adopsi/:nik_adopsi", hapusDataAdopsi);
+
 // ROUTE DATA PENDONASI
 app.get("/api/donasi", getAllDonasi);
 app.post("/api/add", addDataDonasi);
 app.delete("/api/donasi/:nik_infak", hapusDataDonasi);
+
+// ROUTE UNTUK LOGOUT
+app.delete("/api/logout", (_req, res) => {
+  res.setHeader("Chache-Control", "no-store");
+  res.clearCookie("token");
+  res.send("berhasil logout");
+});
 
 app.listen(3000, () => {
   console.log("Server berhasil berjalan.");
