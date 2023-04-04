@@ -2,7 +2,9 @@ import { client } from "../db.js";
 
 // DATA ANAK
 export async function getAllChild(_req, res) {
-  const results = await client.query("SELECT * FROM anak");
+  const results = await client.query(
+    "SELECT * FROM anak ORDER BY nik_anak ASC"
+  );
   res.json(results.rows);
 }
 
@@ -38,7 +40,9 @@ export async function hapusDataAnak(req, res) {
 
 // DATA PENDONASI
 export async function getAllDonasi(_req, res) {
-  await client.query("SELECT * FROM penginfak ORDER BY nik_infak ASC");
+  const results = await client.query(
+    "SELECT * FROM penginfak ORDER BY nik_infak ASC"
+  );
   res.json(results.rows);
 }
 

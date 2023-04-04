@@ -116,7 +116,7 @@ app.delete("/api/child/:nik_anak", hapusDataAnak);
 
 // ROUTE DATA PENDONASI
 app.get("/api/donasi", getAllDonasi);
-app.post("/api/tambah", addDataDonasi);
+app.post("/api/add", addDataDonasi);
 app.delete("/api/donasi/:nik_infak", hapusDataDonasi);
 
 app.listen(3000, () => {

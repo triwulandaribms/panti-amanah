@@ -156,14 +156,14 @@
                 <div class="table-responsive"><br>
 
                    
-                      <h2>Daftar Anak Panti Amanah</h2><br>
+                      <h2>Daftar Pendonasi Panti Amanah</h2><br>
                       <table>
                         <thead>
                          <tr>
-                            <th>Nik Anak</th>
+                            <th>Nik Pendonasi</th>
                             <th>Nama</th>
-                            <th>Umur</th>
-                            <th>Jenis Kelamin</th>
+                            <th>Alamat</th>
+                            <th>Jumlah Uang</th>
                             <th>Edit</th>
                             <th>Hapus</th>
                           </tr>
@@ -171,7 +171,6 @@
                         <tbody></tbody>
                       </table>                      
                
-                    <a class="tambah-anak" href="../anak/form.html">Tambah Data</a>
                     <a  class="Exit-anak" href="../login/index.html">Exit</a>
                 </div>
               </div>
@@ -181,37 +180,29 @@
     </main>
   </div>
     <script>
-      fetch("/api/anak")
+      fetch("/api/donasi")
         .then((response) => response.json())
-        .then((anak) => {
+        .then((donasi) => {
 
-          for(let a = 0; a < anak.length; a++){
+          for(let a = 0; a < donasi.length; a++){
 
             const tr = document.createElement("tr");
 
-            const nikAnak = document.createElement("td");
-            nikAnak.textContent = anak[a].nik_anak;
-            tr.appendChild(nikAnak);
+            const nikDonasi = document.createElement("td");
+            nikDonasi.textContent = donasi[a].nik_infak;
+            tr.appendChild(nikDonasi);
 
-            const namaAnak = document.createElement("td");
-            namaAnak.textContent = anak[a].nama;
-            tr.appendChild(namaAnak);
+            const namaDonasi = document.createElement("td");
+            namaDonasi.textContent = donasi[a].nama;
+            tr.appendChild(namaDonasi);
 
-            const umurAnak = document.createElement("td");
-            umurAnak.textContent = anak[a].umur;
-            tr.appendChild(umurAnak);
+            const AlamatDonasi = document.createElement("td");
+            AlamatDonasi.textContent = donasi[a].alamat;
+            tr.appendChild(AlamatDonasi);
 
-            const jenisKelamin = document.createElement("td");
-            jenisKelamin.textContent = anak[a].jenis_kelamin;
-            tr.appendChild(jenisKelamin);
-
-            
-            const tdUpdate = document.createElement("td");
-            const anchorUpdate = document.createElement("a");
-            anchorUpdate.textContent ="update";
-            anchorUpdate.href=`../anak/update.html?nik_anak=${anak[a].nik_anak}`;
-            tdUpdate.appendChild(anchorUpdate);
-            tr.appendChild(tdUpdate);
+            const uangDonasi = document.createElement("td");
+            uangDonasi.textContent = donasi[a].jumlah_uang;
+            tr.appendChild(uangDonasi);
 
             const tdDelet = document.createElement("td");
             const buttonHapus = document.createElement("button");
@@ -219,19 +210,19 @@
             buttonHapus.onclick = () =>{
                 if(confirm(
                     `Apakah yakin akan dihapus data anak dengan:
-                    nik_anak = ${anak[a].nik_anak} 
-                    nama = ${anak[a].nama}
-                    umur= ${anak[a].umur} 
-                    jenis_kelamin= ${anak[a].jenis_kelamin}?`
+                    nik_infak = ${donasi[a].nik_infak} 
+                    nama = ${donasi[a].nama}
+                    alamat= ${donasi[a].alamat} 
+                    jumlah_uang= ${donasi[a].jumlah_uang}?`
 
                 )){
-                    fetch(`/api/child/${anak[a].nik_anak}`,{
+                    fetch(`/api/donasi/${donasi[a].nik_infak}`,{
                         method: "DELETE",
                         headers: {
                           Authorization: `Bearer ${localStorage.getItem("token")}`,
                         }, 
                     });
-                  location.reload();
+                  location.href="./anak/tampil.html"
                     
                 }
                 
@@ -248,3 +239,4 @@
    </script>
   </body>
 </html>
+

@@ -156,7 +156,7 @@
         <div class="content-isi">
           <div class="content-isi2">
             <div class="payment-pay">
-              <form name="tambah">
+              <form name="add">
                 <label>Nik Pendonasi</label>
                 <input
                   type="text"
@@ -185,11 +185,34 @@
                   id="jumlah-uang" 
                   name="jumlah_uang" 
                   placeholder="masukan jumlah uang..."><br/><br><br>
-                <button href="/tampil.html">SIMPAN</button>
+                <button href="../donasi/tampil.html">SIMPAN</button>
               </form>
             </div>
           </div>
         </div>
       </div>
+
+      <script>
+        document.add.onsubmit = async (e)=>{
+          e.preventDefault();
+          const nik_infak = document.add.nik_infak.value;
+          const nama = document.add.nama.value;
+          const alamat = document.add.alamat.value;
+          const jumlah_uang = document.add.jumlah_uang.value;
+          fetch("/api/add", {
+            method:"POST",
+            headers: {
+              "Content-Type":"application/json",
+            },
+            body: JSON.stringify({
+              nik_infak,
+              nama,
+              alamat,
+              jumlah_uang,
+            }),
+          });
+          location.href="../donasi/tampil.html";
+        }
+      </script>
   </body>
 </html>
