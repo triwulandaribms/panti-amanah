@@ -1,0 +1,292 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+
+body{
+    background-image: linear-gradient(to right,rgb(249, 250, 210),white);
+    background-position: center;
+    background-size: 100% 100%;
+    background-attachment: fixed;
+}
+
+
+#navbar-atas{
+    height: 25px;
+    width: 100%;
+    background: darkseagreen;
+
+}
+
+
+nav{
+    height: 50px;
+    width: 100%;
+    background: black;
+    border: 1px solid black;
+   
+}
+
+
+
+#navbar-bawah{
+    height: 25px;
+    width: 100%;
+    background: darkseagreen;
+   
+}
+
+#navbar-bawah div{
+    display: flex;
+    justify-content: flex-end;
+    
+}  
+
+.search input{
+    margin-top: 2px;
+    border-radius: 10px;
+}
+
+
+nav label .logo{
+    font-size: 35px;
+    font-weight: bold;
+}
+
+
+nav label > img{
+    width: 5%;
+    height: 70%;
+}
+
+
+nav label a{
+    color: rgb(233, 216, 147);
+    font-family: 'Lobster', 'cursive';
+    margin-bottom: 40px;
+ 
+}
+
+nav ul{
+    float: right;
+    margin-right: 20px;
+}
+
+nav ul li{
+    display: inline-block;
+    line-height: 50px;
+    margin: 0 5px;
+}
+
+
+nav ul li a{
+    font-size: 17px;
+    text-transform: uppercase;
+    color: white;
+    padding: 10px 17px;
+    border-radius: 3px;    
+    font-weight: bold;
+  
+}
+
+a .active, a:hover{
+    background: darkseagreen;
+    transition: 0.5s;   
+}
+
+
+.btn{
+    float: right;
+    font-size: 30px;
+    color: white;
+    margin-top: 8px;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+}
+
+
+#check{
+    display: none;
+}
+
+.judul, .tittle{
+    font-family: 'Lobster', 'cursive';
+    text-align: center;
+    font-size: 30px;
+}
+
+h2, h3{
+    color: black;
+}
+
+.profil{
+    font-family: 'Lobster', 'cursive';
+    font-size: 20px;
+}
+
+aside{
+    text-align: center;
+    width: 24%;
+    float: right;
+}
+
+.card{
+    border-radius: 5% 5%;
+    padding: 15px;
+    box-shadow: 0 10px 10px 0 rgb(230, 216, 92);
+}
+
+.card img{
+    width: 58%;
+    border-radius: 50%;
+    height: 175px;
+  
+}
+
+.content{
+    width: 75%;
+    float: right;
+    
+}
+
+
+.text-bold{
+    font-weight: bold;
+}
+
+.label{
+    background-color: rgb(230, 216, 92);
+    color: black;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 5px;
+    border-radius: 5px;
+    font-family: 'Lobster', 'cursive';
+}
+
+
+main{
+    overflow: auto;
+    padding: 15px;
+}
+
+
+/* BAGIAN ICON */
+#icon{
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 230px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+
+
+/* BAGIAN FOOTER */
+
+footer {
+    height: 80px;
+    width: 100%;
+    background: darkseagreen;
+    text-align: center;
+    margin-top: 20px;
+}
+
+
+
+
+/* BAGIAN MEDIA QUERY */
+@media (max-width: 600px){
+    nav label .logo{
+        font-size: 30px;
+        padding-left: 50px;
+    }
+    
+    nav label > img{
+      width: 10%;
+      height: 50%;
+      margin-top: 10px;
+
+    }
+    
+    .search input{
+        margin-left: 0px;
+    }
+    
+    .judul, .tittle{
+        text-align: center;
+        margin-left: 5px;
+    }
+
+    .card img{
+        width: 40%;
+        border-radius: 55%;
+        height: 175px;
+      
+    }
+        
+    #icon{
+        gap: 15px;
+        font-size: 15px;
+    }
+    
+
+    nav ul li a{
+        font-size: 16px;
+    }
+ 
+}
+
+
+@media (max-width: 600px){
+    .btn{
+        display: block;
+
+    }
+
+    ul{
+        height: 100vh;
+        width: 100%;
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        text-align: center;
+        background: rgba(0,0,0,0.2);
+        transition: all .5s;
+    }
+
+    #check:checked ~ ul{
+        left: 0;
+    }
+
+    nav ul li{
+        margin: 50px  0;
+        line-height: 30px;
+        display: block;
+    }
+
+    nav ul li a{
+        font-size: 20px;
+    }
+
+    a .active, a:hover{
+        color: white;
+        background: darkseagreen;
+    }
+}
+@media (max-width: 922px){
+    .content, aside{
+        width: 100%;
+    }
+    div .judul .tittle{
+        width: 100%;
+    }
+
+    
+}

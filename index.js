@@ -130,7 +130,7 @@ app.post("/api/add", addDataDonasi);
 app.delete("/api/donasi/:nik_infak", hapusDataDonasi);
 
 // ROUTE UNTUK LOGOUT
-app.delete("/api/logout", (_req, res) => {
+app.delete("/api/keluar", (_req, res) => {
   res.setHeader("Chache-Control", "no-store");
   res.clearCookie("token");
   res.send("berhasil logout");

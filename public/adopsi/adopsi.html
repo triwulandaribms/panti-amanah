@@ -4,26 +4,23 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Form Data Pengadopsi</title>
+    <title>Donasi atau Infak</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
     intergrity="sha512-kfkfwYDsLKI1wq6LFn18zNdLGxu9YAA1QvwINKs4PhcE1QSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXge10g"
-    crossorigin="anonymous" referrerpolicy="no-referrer">
-    <link rel="stylesheet" href="../assets/update.css" />
+    crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="/assets/index.css">
   </head>
   <style>
-      img{
-        width: 40px;
-        height: 40px;
-      }
-      h3{
-        text-align: center;
-      }
-      p{
-        margin-left: 20px;
-      }
-      form{
-        margin-left: 5px;
-      }
+    .user-wrapper img{
+      width:30px;
+      height:40px;
+    }
+    h3{
+      margin-left: 20px;
+    }
+    form{
+      margin-left: 20px;
+    }
   </style>
   <body>
     <input type="checkbox" id="nav-toggle">
@@ -34,161 +31,196 @@
       </div>
 
     <div class="sidebar-menu">
-      <ul>
-        <li>
-          <a href="../index.html" class="active"><span class="fa-solid fa-house"></span>
-          <span>HOME</span></a>
-        </li>
-        <li>
-          <a href="../anak/index.html"><span class="fa-sharp fa-solid fa-children"></span>
-          <span>DATA ANAK</span>
-        </li>
-        <li>
-          <a href="../adopsi/adopsi.html"><span class="fa-solid fa-arrows-down-to-people"></span>
-          <span>DATA ADOPSI</span>
-        </li>
-        <li>
-          <a href="../donasi/donasi.html"><span class="fa-sharp fa-solid fa-comments-dollar"></span>
-          <span>DATA DONASI</span>
-        </li>
-        <li>
-          <a href="../about/about.html"><span class="fa-solid fa-address-card"></span>
-          <span>ABOUT</span>
-        </li>
-        <li>
-          <a href="../login/index.html"><span class="fa-solid fa-circle-xmark"></span>
-          <span>LOGOUT</span>
-        </li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="main-content">
-    <header>
-      <h2>
-        <label for="nav-toggle">
-          <span class="fa-solid fa-bars"></span>
-        </label>Panti Asuhan
-      </h2>
-      <div class="search-wrapper">
-        <span class="fa-solid fa-magnifying-glass"></span>
-        <input type="search" placeholder="Buscar aqui"/>
-      </div>
-
-      <div class="user-wrapper">
-        <img src="/assets/me.jpg">
-        <div>
-          <h4>Administrator</h4>
-          <small>Super Admin</small>
-        </div>
-      </div>
-    </header>
-
-    <main>
-      <div class="cards-cards">
-        <div class="card-single">
-
-          <div>
-            <h1>"_"</h1>
-            <span>Bersama</span>
-          </div>
-          
-          <div>
-            <span class="fa-sharp fa-solid fa-store"></span>
-          </div>
-
-        </div>
-
-        <div class="card-single">
-          
-          <div>
-            <h1>*_*</h1>
-            <span>Menjaga</span>
-          </div>
-          
-          <div>
-            <span class="fa-solid fa-person-shelter"></span>
-          </div>
-
-        </div>
-
-        <div class="card-single">
-          
-          <div>
-            <h1>~_~</h1>
-            <span>Beriman</span>
-          </div>
-          
-          <div>
-            <span class="fa-sharp fa-solid fa-person-dots-from-line"></span>
-          </div>
-
-        </div>
-
-        <div class="card-single">
-          
-          <div>
-          <h1>^_^</h1>
-          <span>Bercerita</span>
-          </div>
-        
-          <div>
-          <span></span>
-          </div>
+        <ul>
+          <li>
+            <a href="../index.html" class="active"><span class="fa-solid fa-house"></span>
+            <span>HOME</span></a>
+          </li>
+          <li>
+            <a href="../anak/tampil.html"><span class="fa-sharp fa-solid fa-children"></span>
+            <span>DATA ANAK</span>
+          </li>
+          <li>
+            <a href="../adopsi/adopsi.html"><span class="fa-solid fa-arrows-down-to-people"></span>
+            <span>DATA ADOPSI</span>
+          </li>
+          <li>
+            <a href="../donasi/donasi.html"><span class="fa-sharp fa-solid fa-comments-dollar"></span>
+            <span>DATA DONASI</span>
+          </li>
+          <li>
+            <a href="../about/about.html"><span class="fa-solid fa-address-card"></span>
+            <span>ABOUT</span>
+          </li>
+          <li>
+            <a href="../login/index.html"><span class="fa-solid fa-circle-xmark"></span>
+            <span>LOGOUT</span>
+          </li>
+        </ul>
       </div>
     </div>
-
-    <div class="content-isi">
-      <div class="content-isi2">
-          <div class="payment-pay">
-        <form name="plus"><br>
-          <h3>FORM DATA PENGADOPSI</h3><br>
-          <div class="user-guna">
-            <a href="#" class="btn"><i ></i></a>
-            <a href="#" class="btn"><i ></i></a>
-            <a href="#" class="btn"><i></i></a>
+    <div class="main-content">
+      <header>
+        <h2>
+          <label for="nav-toggle">
+            <span class="fa-solid fa-bars"></span>
+          </label>Panti Asuhan
+        </h2>
+        <div class="search-wrapper">
+          <span class="fa-solid fa-magnifying-glass"></span>
+          <input type="search" placeholder="Buscar aqui"/>
+        </div>
+  
+        <div class="user-wrapper">
+          <img src="/assets/me.jpg">
+          <div>
+            <h4>Administrator</h4>
+            <small>Super Admin</small>
           </div>
-          <p>Isi kolom - kolom yang ada dibawah ini sesuai dengan nik anak yang akan diedit</p><br>
-          <label>Nik pengadopsi</label>
-          <input type="text" name="nikAdopsi" required autofocus /><br /><br />
-          <label>Nama pengadopsi</label>
-          <input type="text" name="nama" required /><br /><br />
-          <label>Alamat pengadopsi</label>
-          <input type="text" name="alamat" required /><br /><br />
-          <label>Gaji pengadopsi</label>
-          <input type="text" name="gaji" required /><br /><br />
-          <label>Nik anak</label>
-          <input type="text" name="nikAnak" required /><br /><br />
-          <button>SIMPAN</button>
-        </form>
+        </div>
+      </header>
+      <main>
+        <div class="cards-cards">
+  
+          <div class="card-single">
+            <div>
+              <h1>"_"</h1>
+              <span>Bercerita</span>
+            </div>
+            
+            <div>
+              <span class="fa-sharp fa-solid fa-store"></span>
+            </div>
+          </div>
+  
+          <div class="card-single">
+            
+            <div>
+              <h1>*_*</h1>
+              <span>Bersama</span>
+            </div>
+  
+            <div>
+              <span class="fa-sharp fa-solid fa-person-dots-from-line"></span>
+            </div>
+  
+          </div>
+  
+          <div class="card-single">
+            
+            <div>
+              <h1>~_~</h1>
+              <span>Menjaga</span>
+            </div>
+  
+            <div>
+              <span class="fa-solid fa-person-shelter"></span>
+            </div>
+  
+          </div>
+  
+          <div class="card-single">
+            <div>
+              <h1>^_^</h1>
+              <span>Beriman</span>
+            </div>
+          <div>
+            <span class="las la-wpforms"></span>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</main>
-</div>
-<script>
-  document.plus.onsubmit = async (e)=>{
-    e.preventDefault();
-    const nik_adopsi = document.plus.nikAdopsi.value;
-    const nama = document.plus.nama.value;
-    const alamat = document.plus.alamat.value;
-    const gaji = document.plus.gaji.value;
-    const nik_anak = document.plus.nikAnak.value;
-    fetch("/api/nambah", {
-      method:"POST",
-      headers:{
-        "Content-Type":"application/json",
-      },
-      body: JSON.stringify({
-        nik_adopsi,
-        nama,
-        alamat,
-        gaji,
-        nik_anak,
-      }),
-    });
-    location.href="../adopsi/tampil.html";
-  }
-</script>
-</body>
+  
+        <div class="recent-grind">
+          <div class="project">
+              <div class="card">
+                <div class="card-header">
+                  <h3>Panti Asuhan Amanah</h3>
+  
+                  <a href="../adopsi/tampil.html"><h4>LIHAT DATA</h4></a>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+  
+      <div class="card-body">
+        <div class="table-responsive">
+            <div class="search-cari"><br>
+              <h3>FORM DATA PENGADOPSI</h3><br>
+            </div>
+            <div class="user-guna">
+              <a href="#" class="btn"><i ></i></a>
+              <a href="#" class="btn"><i ></i></a>
+              <a href="#" class="btn"><i></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="content-isi">
+          <div class="content-isi2">
+            <div class="payment-pay">
+              <form name="pluss">
+                <label>Nik Pengadopsi</label>
+                <input
+                  type="text"
+                  id="nik-adopsi"
+                  name="nik_adopsi"
+                  placeholder="masukan nik..."
+                  required
+                /><br /><br />
+                <label>nama Pengadopsi</label>
+                <input
+                  type="text"
+                  id="nama-pengadopsi"
+                  name="nama"
+                  placeholder="masukan nama..."
+                  required
+                /><br /><br />
+                <label>Alamat Pengadopsi</label>
+                <input
+                  type="text"
+                  id="alamat-pengadopsi"
+                  name="alamat"
+                  placeholder="masukan alamat..."/>
+                  <br/><br>
+                  <label>Gaji Pengadopsi</label>
+                  <input type="text" 
+                  id="gaji-adopsi" 
+                  name="gaji" 
+                  placeholder="masukan gaji...">
+                  <br><br>
+                  <label>Nik Anak</label>
+                  <input type="text" 
+                  id="nik-anak" 
+                  name="nik_anak" 
+                  placeholder="masukan nik anak..."><br/><br><br>
+                <button href="../adopsi/tampil.html">SIMPAN</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        document.pluss.onsubmit = async (e)=>{
+          e.preventDefault();
+          const nik_adopsi = document.pluss.nik_adopsi.value;
+          const nama = document.pluss.nama.value;
+          const alamat = document.pluss.alamat.value;
+          const gaji = document.pluss.gaji.value;
+          const nik_anak = document.pluss.nik_anak.value;
+          fetch("/api/nambah", {
+            method:"POST",
+            headers: {
+              "Content-Type":"application/json",
+            },
+            body: JSON.stringify({
+              nik_adopsi,
+              nama,
+              alamat,
+              gaji,
+              nik_anak,
+            }),
+          });
+          location.href="../adopsi/tampil.html";
+        }
+      </script>
+  </body>
 </html>

@@ -209,11 +209,11 @@
   </div>
   
   <script>
-    const keluar = document.querySelector(".sidebar-menu #logout");
+    const keluar = document.querySelector("#logout");
 
     keluar.onclick = ()=>{
       
-      fetch("/api/logout")
+      fetch("/api/keluar")
         .then((response)=>{
           if(response.ok){
             location.href="../login/index.html"

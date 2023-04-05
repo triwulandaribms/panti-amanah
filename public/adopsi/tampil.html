@@ -5,6 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tampil data pengadopsi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    intergrity="sha512-kfkfwYDsLKI1wq6LFn18zNdLGxu9YAA1QvwINKs4PhcE1QSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXge10g"
+    crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="/assets/index.css" />
+
   <style>
     img{
       width: 40px;
@@ -12,8 +17,8 @@
     }
 
     td, th{
-      border: 1px solid;
-      background-color: rgb(214, 144, 14);
+      border: 2px solid;
+      background-color: rgb(201, 136, 17);
       text-align: center;
     }
 
@@ -42,7 +47,7 @@
           <span>HOME</span></a>
         </li>
         <li>
-          <a href="../anak/index.html"><span class="fa-sharp fa-solid fa-children"></span>
+          <a href="../anak/tampil.html"><span class="fa-sharp fa-solid fa-children"></span>
           <span>DATA ANAK</span>
         </li>
         <li>
@@ -179,27 +184,28 @@
     fetch("/api/adopsi")
       .then((response)=> response.json())
       .then((adopsi)=>{
-        for(let a = 0; a < adopsi.length; a++){
+        for(let b = 0; b < adopsi.length; b++){
+
             const tr = document.createElement("tr");
 
             const nikAdopsi = document.createElement("td");
-            nikAdopsi.textContent = adopsi[a].nik_adopsi;
+            nikAdopsi.textContent = adopsi[b].nik_adopsi;
             tr.appendChild(nikAdopsi);
 
             const namaAdopsi = document.createElement("td");
-            namaAdopsi.textContent = adopsi[a].nama;
+            namaAdopsi.textContent = adopsi[b].nama;
             tr.appendChild(namaAdopsi);
 
             const AlamatAdopsi = document.createElement("td");
-            AlamatAdopsi.textContent = adopsi[a].alamat;
+            AlamatAdopsi.textContent = adopsi[b].alamat;
             tr.appendChild(AlamatAdopsi);
 
             const gajiAdopsi = document.createElement("td");
-            gajiAdopsi.textContent = gajiAdopsi[a].gaji;
+            gajiAdopsi.textContent = adopsi[b].gaji;
             tr.appendChild(gajiAdopsi);
 
             const nikAnakAdopsi = document.createElement("td");
-            nikAnakAdopsi.textContent = nikAnakAdopsi[a].nik_anak;
+            nikAnakAdopsi.textContent = adopsi[b].nik_anak;
             tr.appendChild(nikAnakAdopsi);
 
             const tdDelet = document.createElement("td");
@@ -208,20 +214,20 @@
             buttonHapus.onclick = () =>{
                 if(confirm(
                     `Apakah yakin akan dihapus data anak dengan:
-                    nik_infak = ${adopsi[a].nik_adopsi} 
-                    nama = ${adopsi[a].nama}
-                    alamat= ${adopsi[a].alamat} 
-                    gaji= ${adopsi[a].gaji}
-                    nik_anak=${adopsi[a].nik_anak}?`
+                    nik_infak = ${adopsi[b].nik_adopsi} 
+                    nama = ${adopsi[b].nama}
+                    alamat= ${adopsi[b].alamat} 
+                    gaji= ${adopsi[b].gaji}
+                    nik_anak=${adopsi[b].nik_anak}?`
 
                 )){
-                    fetch(`/api/adopsi/${adopsi[a].nik_adopsi}`,{
+                    fetch(`/api/adopsi/${adopsi[b].nik_adopsi}`,{
                         method: "DELETE",
                         headers: {
                           Authorization: `Bearer ${localStorage.getItem("token")}`,
                         }, 
                     });
-                  location.href="./donasi/tampil.html"
+                  location.reload();
                     
                 }
                 
