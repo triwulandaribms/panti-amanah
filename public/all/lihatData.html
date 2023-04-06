@@ -4,27 +4,38 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard</title>
-    <link rel="stylesheet" href="/tampil.css">
+    <title>Daftar Data Anak</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
     intergrity="sha512-kfkfwYDsLKI1wq6LFn18zNdLGxu9YAA1QvwINKs4PhcE1QSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXge10g"
-    crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="stylesheet" href="/assets/index.css" />
     <style>
-      .user-wrapper img{
-        width:30px;
-        height:40px;
+      img{
+        width: 40px;
+        height: 40px;
       }
-      table{
-        width: 100%;
-      }
-      h3{
+
+      td, th{
+        border: 3px solid;
+        background-color: rgb(199, 147, 50);
         text-align: center;
       }
-      img{
-        width: 45px;
-        height: 60px;
+
+      table {
+        border-collapse: collapse;
+        margin-left: 200px;
       }
+
+      h2{
+        text-align: center;
+      }
+
+     .button-tbl a{
+        margin-left: 200px;
+ 
+     }
+
+
     </style>
   </head>
   <body>
@@ -89,25 +100,39 @@
 
     <main>
       <div class="cards-cards">
-
         <div class="card-single">
+
           <div>
             <h1>"_"</h1>
-            <span>Bercerita</span>
+            <span>Bersama</span>
           </div>
           
           <div>
             <span class="fa-sharp fa-solid fa-store"></span>
           </div>
+
         </div>
 
         <div class="card-single">
           
           <div>
             <h1>*_*</h1>
-            <span>Bersama</span>
+            <span>Menjaga</span>
+          </div>
+          
+          <div>
+            <span class="fa-solid fa-person-shelter"></span>
           </div>
 
+        </div>
+
+        <div class="card-single">
+          
+          <div>
+            <h1>~_~</h1>
+            <span>Beriman</span>
+          </div>
+          
           <div>
             <span class="fa-sharp fa-solid fa-person-dots-from-line"></span>
           </div>
@@ -117,24 +142,14 @@
         <div class="card-single">
           
           <div>
-            <h1>~_~</h1>
-            <span>Menjaga</span>
+          <h1>^_^</h1>
+          <span>Bercerita</span>
           </div>
-
+        
           <div>
-            <span class="fa-solid fa-person-shelter"></span>
-          </div>
-
+          <span></span>
         </div>
 
-        <div class="card-single">
-          <div>
-            <h1>^_^</h1>
-            <span>Beriman</span>
-          </div>
-        <div>
-          <span class="las la-wpforms"></span>
-        </div>
       </div>
     </div>
 
@@ -144,71 +159,71 @@
               <div class="card-header">
                 <h3>Panti Asuhan Amanah</h3>
 
-                <button>Yayasan<span class="las la-arrow-right"></span></button>
+                <a class="tambah-anak" href="../index.html"><h4>Kembali</h4></a>
               </div>
+
               <div class="card-body">
                 <div class="table-responsive">
-                  <h3>ABOUT</h3>
-                  <table>
-                    <thead>
-                      <tr>
-                        <p>Website ini dibuat untuk memenuhi uas pelatihan bahasa pemrograman</p>
-                      </tr>
-                      <tr>
-                        <img src="../assets/sellury.jpg" alt="">
-                        <p>Tri Wulandari</p>
-                        <p>Jabatan</p>
-                        Mahasiswa PUB
-                        <p>pendidikan</p>
-                        D3 Manajemen Informatika
-                      </tr>
-                      <tr>
-                        <td>Bersyukur</td>
-                        <td>Bercerita</td>
-                        <td>Beriman</td>
-                      </tr>
 
-                      </thead>
-                   </table>
-                </div>
-              </div>
-            </div>
-        </div>
-
-        <div class="customers">
-          <div class="card">
-            <div class="card-body">
-              <div class="customer">
-                <div class="info">
-                  <div>
-                    <h4>TRI WULANDARI</h4>
-                    <small>MAHASISWA</small>
+                    <h2>Daftar Anak Teradopsi</h2><br>
+                      <table>
+                        <thead>
+                         <tr>
+                            <th>Nama Anak</th>
+                            <th>Umur Anak</th>
+                            <th>Jenis Kelamin</th>
+                            <th>Alamat Sekarang</th>
+                          </tr>
+                        </thead>
+                        <tbody></tbody>
+                      </table>                      
                   </div>
                 </div>
-                <div class="contact">
-                  <span class="las la-user-circle"></span>
-                  <span class="lab la-whatsapp" href="https://web.whatsapp.com/"></span>
-                  <span class="las la-phone"></span>
-                </div>
               </div>
             </div>
-          </div>
         </div>
       </div>
     </main>
   </div>
+    <script>
+        fetch("/api/anakAdopsi")
+            .then((response)=> response.json())
+            .then((gabung)=>{
+                for(let c = 0; c < gabung.length; c++){
+
+                    const tr = document.createElement("tr");
+
+                    const namaAnak = document.createElement("td");
+                    namaAnak.textContent = gabung[c].nama;
+                    tr.appendChild(namaAnak);
+                    
+                    const umurAnak = document.createElement("td");
+                    umurAnak.textContent = gabung[c].umur;
+                    tr.appendChild(umurAnak);
+
+                    const jenisKelaminAnak = document.createElement("td");
+                    jenisKelaminAnak.textContent = gabung[c].jenis_kelamin;
+                    tr.appendChild(jenisKelaminAnak);
+
+                    const alamatPengadopsi = document.createElement("td");
+                    alamatPengadopsi.textContent = gabung[c].alamat;
+                    tr.appendChild(alamatPengadopsi);
+
+                    document.querySelector("tbody").appendChild(tr);
+
+                }
+            })
+
+        const keluar = document.querySelector("#logout-keluar");
+        keluar.onclick = ()=>{
   
-  <script>
-    const keluar = document.querySelector("#logout-keluar");
-    keluar.onclick = ()=>{
-      
-      fetch("/api/keluar")
-        .then((response)=>{
-          if(response.ok){
-            location.href="../login/index.html"
-          }
-        });
-    };
-  </script>
-</body>
+        fetch("/api/keluar")
+          .then((response)=>{
+            if(response.ok){
+              location.href="../login/index.html"
+            }
+          });
+        };
+   </script>
+  </body>
 </html>

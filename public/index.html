@@ -15,6 +15,9 @@
         width:30px;
         height:40px;
       }
+      table{
+        width: 100%;
+      }
     </style>
   </head>
   <body>
@@ -48,7 +51,7 @@
           <span>ABOUT</span>
         </li>
         <li>
-          <a href="../login/index.html" id="logout"><span class="fa-solid fa-circle-xmark"></span>
+          <a href="../login/index.html" id="logout-keluar"><span class="fa-solid fa-circle-xmark"></span>
           <span>LOGOUT</span>
         </li>
       </ul>
@@ -134,11 +137,11 @@
               <div class="card-header">
                 <h3>Panti Asuhan Amanah</h3>
 
-                <button>Yayasan<span class="las la-arrow-right"></span></button>
+                <a href="../all/lihatData.html" id="join-data">Data Terkini<span class="las la-arrow-right"></span></a>
               </div>
               <div class="card-body">
                 <div class="table-responsive">
-                  <table width="100%">
+                  <table>
                     <thead>
                     <p>Panti Asuhan adalah sebuah lembaga sosial yang menyediakan tempat tinggal, makanan, pendidikan, 
                       dan perawatan bagi anak-anak yang tidak memiliki keluarga atau keluarganya 
@@ -209,8 +212,17 @@
   </div>
   
   <script>
-    const keluar = document.querySelector("#logout");
+    const lihat = document.querySelector("#join-data");
+    lihat.onclick = ()=>{
+      fetch("/api/anakAdopsi")
+        .then((response)=>{
+          if(response.ok){
+            location.href="../all/lihatData.html";
+          }
+        });
+    };
 
+    const keluar = document.querySelector("#logout-keluar");
     keluar.onclick = ()=>{
       
       fetch("/api/keluar")

@@ -14,6 +14,8 @@ import {
   getAllAdopsi,
   addDataAdopsi,
   hapusDataAdopsi,
+  allGabung,
+  logoutToken,
 } from "./route/data.js";
 
 import { client } from "./db.js";
@@ -123,18 +125,18 @@ app.delete("/api/child/:nik_anak", hapusDataAnak);
 app.get("/api/adopsi", getAllAdopsi);
 app.post("/api/nambah", addDataAdopsi);
 app.delete("/api/adopsi/:nik_adopsi", hapusDataAdopsi);
+// app.get("/api/merge", tampilGabung);
 
 // ROUTE DATA PENDONASI
 app.get("/api/donasi", getAllDonasi);
 app.post("/api/add", addDataDonasi);
 app.delete("/api/donasi/:nik_infak", hapusDataDonasi);
 
+// ROUTE TAMPIL DATA ANAK DAN PENGADOPSI
+app.get("/api/anakAdopsi", allGabung);
+
 // ROUTE UNTUK LOGOUT
-app.delete("/api/keluar", (_req, res) => {
-  res.setHeader("Chache-Control", "no-store");
-  res.clearCookie("token");
-  res.send("berhasil logout");
-});
+app.get("/api/keluar", logoutToken);
 
 app.listen(3000, () => {
   console.log("Server berhasil berjalan.");

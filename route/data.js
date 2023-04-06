@@ -79,3 +79,16 @@ export async function hapusDataDonasi(req, res) {
   );
   res.send("data pendonasi berhasil dihapus.");
 }
+
+export async function allGabung(_req, res) {
+  const results = await client.query(
+    "SELECT anak.nama, anak.umur, anak.jenis_kelamin, pengadopsi.alamat FROM anak INNER JOIN pengadopsi ON anak.nik_anak = pengadopsi.nik_anak"
+  );
+  res.json(results.rows);
+}
+
+export async function logoutToken(_req, res) {
+  // res.setHeader("Cache-Control", "no-store"); // khusus Vercel
+  res.clearCookie("token");
+  res.send("token berhasil dihapus");
+}

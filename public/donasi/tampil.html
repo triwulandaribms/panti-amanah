@@ -65,7 +65,7 @@
           <span>ABOUT</span>
         </li>
         <li>
-          <a href="../login/index.html"><span class="fa-solid fa-circle-xmark"></span>
+          <a href="../login/index.html" id="logout-keluar"><span class="fa-solid fa-circle-xmark"></span>
           <span>LOGOUT</span>
         </li>
       </ul>
@@ -238,6 +238,18 @@
   
           }
         });
+
+        
+        const keluar = document.querySelector("#logout-keluar");
+        keluar.onclick = ()=>{
+  
+        fetch("/api/keluar")
+          .then((response)=>{
+            if(response.ok){
+              location.href="../login/index.html"
+            }
+          });
+        };
    </script>
   </body>
 </html>
