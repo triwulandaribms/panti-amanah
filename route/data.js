@@ -87,6 +87,11 @@ export async function allGabung(_req, res) {
   res.json(results.rows);
 }
 
+export async function jumlahTabelAnak(_req, res) {
+  const results = await client.query("SELECT COUNT(*) FROM anak");
+  res.json(results.rows[0]);
+}
+
 export async function logoutToken(_req, res) {
   // res.setHeader("Cache-Control", "no-store"); // khusus Vercel
   res.clearCookie("token");

@@ -16,6 +16,7 @@ import {
   hapusDataAdopsi,
   allGabung,
   logoutToken,
+  jumlahTabelAnak,
 } from "./route/data.js";
 
 import { client } from "./db.js";
@@ -125,7 +126,6 @@ app.delete("/api/child/:nik_anak", hapusDataAnak);
 app.get("/api/adopsi", getAllAdopsi);
 app.post("/api/nambah", addDataAdopsi);
 app.delete("/api/adopsi/:nik_adopsi", hapusDataAdopsi);
-// app.get("/api/merge", tampilGabung);
 
 // ROUTE DATA PENDONASI
 app.get("/api/donasi", getAllDonasi);
@@ -134,6 +134,9 @@ app.delete("/api/donasi/:nik_infak", hapusDataDonasi);
 
 // ROUTE TAMPIL DATA ANAK DAN PENGADOPSI
 app.get("/api/anakAdopsi", allGabung);
+
+//LIHAT JUMLAH ANAK
+app.get("/api/jumlahAnak", jumlahTabelAnak);
 
 // ROUTE UNTUK LOGOUT
 app.get("/api/keluar", logoutToken);
