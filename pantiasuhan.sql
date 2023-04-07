@@ -74,6 +74,12 @@ CREATE TABLE penginfak(
 
  DELETE FROM penginfak WHERE nik_infak;
 
+ SELECT COUNT(*) FROM anak;
+
+ SELECT COUNT(*) FROM pengadopsi;
+
+ SELECT COUNT(*) FROM penginfak;
+
  SELECT anak.nama, anak.umur, anak.jenis_kelamin, pengadopsi.alamat FROM anak INNER JOIN pengadopsi ON anak.nik_anak = pengadopsi.nik_anak;
 
 

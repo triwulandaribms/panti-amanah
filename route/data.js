@@ -92,6 +92,16 @@ export async function jumlahTabelAnak(_req, res) {
   res.json(results.rows[0]);
 }
 
+export async function jmlhTabelAdopsi(_req, res) {
+  const results = await client.query("SELECT COUNT(*) FROM pengadopsi");
+  res.json(results.rows[0]);
+}
+
+export async function sumTabelDonasi(_req, res) {
+  const results = await client.query("SELECT COUNT(*) FROM penginfak");
+  res.json(results.rows[0]);
+}
+
 export async function logoutToken(_req, res) {
   res.setHeader("Cache-Control", "no-store"); // khusus Vercel
   res.clearCookie("token");
