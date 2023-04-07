@@ -90,14 +90,14 @@ app.post("/api/login", async (req, res) => {
 });
 
 // Untuk mengakses file statis
-app.use(express.static("public"));
+// app.use(express.static("public"));
 
 // Untuk mengakses file statis (khusus Vercel)
-// import path from "path";
-// import { fileURLToPath } from "url";
-// const __filename = fileURLToPath(import.meta.url);
-// const __dirname = path.dirname(__filename);
-// app.use(express.static(path.join(__dirname, "public")));
+import path from "path";
+import { fileURLToPath } from "url";
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+app.use(express.static(path.join(__dirname, "public")));
 
 app.post("/api/admin", async (req, res) => {
   const salt = await bcrypt.genSalt();

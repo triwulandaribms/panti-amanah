@@ -93,7 +93,7 @@ export async function jumlahTabelAnak(_req, res) {
 }
 
 export async function logoutToken(_req, res) {
-  // res.setHeader("Cache-Control", "no-store"); // khusus Vercel
+  res.setHeader("Cache-Control", "no-store"); // khusus Vercel
   res.clearCookie("token");
   res.send("token berhasil dihapus");
 }
